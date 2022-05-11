@@ -46,6 +46,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-05-11T18:01:20Z
 - Autopublish 2022-05-11T18:07:28Z
 - Autopublish 2022-05-11T18:24:03Z
+- Autopublish 2022-05-11T18:29:37Z
 
 ### Testing
 
@@ -56,6 +57,7 @@ All notable changes to this project will be documented in this file.
 
 - Bugfixes to code for server and upload_module
 - Fix codecov.yml GHA yml syntax
+- Fix codecov
 
 ### Config
 
