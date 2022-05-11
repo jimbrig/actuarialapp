@@ -4,6 +4,7 @@
   "identifier": "actuarialapp",
   "description": "Shiny app for actuarial science.",
   "name": "actuarialapp: Actuarial R Shiny Application",
+  "relatedLink": "https://jimbrig.github.io/actuarialapp/",
   "codeRepository": "https://github.com/jimbrig/actuarialapp",
   "issueTracker": "https://github.com/jimbrig/actuarialapp/issues",
   "license": "https://spdx.org/licenses/MIT",
@@ -31,18 +32,6 @@
     }
   ],
   "softwareSuggestions": [
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "covr",
-      "name": "covr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=covr"
-    },
     {
       "@type": "SoftwareApplication",
       "identifier": "knitr",
@@ -102,18 +91,6 @@
     },
     "2": {
       "@type": "SoftwareApplication",
-      "identifier": "attempt",
-      "name": "attempt",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=attempt"
-    },
-    "3": {
-      "@type": "SoftwareApplication",
       "identifier": "config",
       "name": "config",
       "version": ">= 0.3.1",
@@ -125,7 +102,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=config"
     },
-    "4": {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "datamods",
       "name": "datamods",
@@ -137,7 +114,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=datamods"
     },
-    "5": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -149,19 +126,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "6": {
-      "@type": "SoftwareApplication",
-      "identifier": "DT",
-      "name": "DT",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=DT"
-    },
-    "7": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "fs",
       "name": "fs",
@@ -173,19 +138,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=fs"
     },
-    "8": {
-      "@type": "SoftwareApplication",
-      "identifier": "glue",
-      "name": "glue",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=glue"
-    },
-    "9": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "golem",
       "name": "golem",
@@ -198,19 +151,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=golem"
     },
-    "10": {
-      "@type": "SoftwareApplication",
-      "identifier": "htmltools",
-      "name": "htmltools",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=htmltools"
-    },
-    "11": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -222,19 +163,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "12": {
-      "@type": "SoftwareApplication",
-      "identifier": "pkgload",
-      "name": "pkgload",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=pkgload"
-    },
-    "13": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -246,7 +175,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "14": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -258,7 +187,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "15": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "shiny",
       "name": "shiny",
@@ -271,7 +200,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=shiny"
     },
-    "16": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -283,7 +212,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "17": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -295,7 +224,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyr"
     },
-    "18": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "validate",
       "name": "validate",
@@ -309,5 +238,5 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "10142.135KB"
+  "fileSize": "10153.771KB"
 }
