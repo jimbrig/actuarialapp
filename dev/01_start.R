@@ -20,12 +20,12 @@
 ##
 golem::fill_desc(
   pkg_name = "actuarialapp", # The Name of the package containing the App
-  pkg_title = "PKG_TITLE", # The Title of the package containing the App
-  pkg_description = "PKG_DESC.", # The Description of the package containing the App
-  author_first_name = "AUTHOR_FIRST", # Your First Name
-  author_last_name = "AUTHOR_LAST", # Your Last Name
-  author_email = "AUTHOR@MAIL.COM", # Your Email
-  repo_url = NULL # The URL of the GitHub Repo (optional)
+  pkg_title = "Actuarial R Shiny Application", # The Title of the package containing the App
+  pkg_description = "Shiny app for actuarial science.", # The Description of the package containing the App
+  author_first_name = "Jimmy", # Your First Name
+  author_last_name = "Briggs", # Your Last Name
+  author_email = "jimmy.briggs@jimbrig.com", # Your Email
+  repo_url = "https://github.com/jimbrig/actuarialapp" # The URL of the GitHub Repo (optional)
 )
 
 ## Set {golem} options ----
@@ -33,11 +33,11 @@ golem::set_golem_options()
 
 ## Create Common Files ----
 ## See ?usethis for more information
-usethis::use_mit_license("Golem User") # You can set another license here
+usethis::use_mit_license("Jimmy Briggs") # You can set another license here
 usethis::use_readme_rmd(open = FALSE)
 # Note that `contact` is required since usethis version 2.1.5
 # If your {usethis} version is older, you can remove that param
-usethis::use_code_of_conduct(contact = "Golem User")
+usethis::use_code_of_conduct(contact = "Jimmy Briggs")
 usethis::use_lifecycle_badge("Experimental")
 usethis::use_news_md(open = FALSE)
 
@@ -49,8 +49,8 @@ usethis::use_git()
 golem::use_recommended_tests()
 
 ## Favicon ----
-# If you want to change the favicon (default is golem's one)
-golem::use_favicon() # path = "path/to/ico". Can be an online file.
+fs::dir_create("inst/assets/img")
+golem::use_favicon("inst/assets/img/logo.ico") # path = "path/to/ico". Can be an online file.
 # golem::remove_favicon() # Uncomment to remove the default favicon
 
 ## Add helper functions ----
