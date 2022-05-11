@@ -25,12 +25,14 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: covr
+          extra-packages: covr, here
 
       - name: Install Package
         run: |
           R CMD INSTALL --install-tests .
       - name: Test coverage
         # run: covr::codecov()
-        run: covr::codecov(coverage = covr::package_coverage()) #line_exclusions = list("R/utils-msg_helpers.R")))
+        run: |
+          Sys.setenv("CODECOV_TOKEN" = "${{ secrets.CODECOV_TOKEN }}")
+          covr::codecov(coverage = covr::package_coverage(here::here(), type = "tests", quiet = FALSE, line_exclusions = list("tests/spelling.R"))) #line_exclusions = list("R/utils-msg_helpers.R")))
         shell: Rscript {0}
