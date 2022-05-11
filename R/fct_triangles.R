@@ -6,7 +6,6 @@
 #'
 #' @return list of triangle data
 #'
-#' @importFrom devtri dev_tri spread_tri ata_tri idf ldf_avg ldf_avg_wtd idf2cdf cdf
 #' @importFrom dplyr rename filter mutate
 #' @importFrom purrr map2_dfr
 #' @importFrom rlang set_names
@@ -15,14 +14,14 @@ derive_triangles <- function(loss_dat, type = c("paid", "reported", "case", "n_c
 
   agg_dat <- loss_dat %>% aggregate_loss_data(limit = limit)
 
-  tri_dat <- devtri::dev_tri(
+  tri_dat <- dev_tri(
     origin = agg_dat$accident_year,
     age = agg_dat$devt,
     value = agg_dat[[type]]
   )
 
   tri <- tri_dat %>%
-    devtri::spread_tri() %>%
+    spread_tri() %>%
     dplyr::rename(AYE = origin)
 
   if (type == "case") {
@@ -36,24 +35,24 @@ derive_triangles <- function(loss_dat, type = c("paid", "reported", "case", "n_c
   }
 
   ata_dat <- tri_dat %>%
-    devtri::ata_tri(loss_dat) %>%
+    ata_tri(loss_dat) %>%
     dplyr::filter(!is.na(value))
 
   ata_tri <- ata_dat %>%
-    devtri::spread_tri() %>%
+    spread_tri() %>%
     dplyr::rename(AYE = origin) %>%
     dplyr::mutate(AYE = as.character(AYE))
 
   # ata_tri <- triangle_data[[input$type]]$age_to_age_triangle %>%
   #   mutate(AYE = as.character(AYE))
 
-  ldf_avg <- devtri::idf(devtri::ldf_avg(tri_dat)$idfs)
+  ldf_avg <- idf(ldf_avg(tri_dat)$idfs)
 
-  ldf_avg_wtd <- devtri::idf(devtri::ldf_avg_wtd(tri_dat)$idfs)
+  ldf_avg_wtd <- idf(ldf_avg_wtd(tri_dat)$idfs)
 
   sel <- ldf_avg_wtd
 
-  cdf <- devtri::idf2cdf(sel)
+  cdf <- idf2cdf(sel)
 
   params <- list("Straight Average:" = ldf_avg,
                  "Weighted Average:" = ldf_avg_wtd,
@@ -108,4 +107,73 @@ aggregate_loss_data <- function(claim_dat, limit = NA) {
     ) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(case = reported - paid)
+}
+
+#' @importFrom dplyr mutate
+#' @importFrom tibble tibble
+idf <- function(idfs, first_age = 12) {
+
+  l <- length(idfs)
+  last_age <- first_age + l - 1
+  stopifnot(is.numeric(first_age) && length(first_age) == 1L)
+  stopifnot(first_age > 0)
+  stopifnot(is.numeric(idfs) && l > 0)
+  tib <- tibble::tibble(age = first_age:last_age, idfs = idfs)
+  tib <- tib %>% dplyr::mutate(earned_ratio = pmin(age/1, 1))
+  out <- structure(tib, tail_first_age = NA, dev_tri = NA,
+                   class = c("idf_", class(tib)))
+}
+
+#' @importFrom dplyr select ungroup mutate group_by lead
+ata_tri <- function(tri, ...) {
+
+  stopifnot(inherits(tri, "dev_tri"))
+
+  out <- tri |>
+    dplyr::group_by(.data$origin) |>
+    dplyr::mutate(value_lead = dplyr::lead(.data$value, by = .data$age),
+                  value = value_lead / value) |>
+    dplyr::ungroup() |>
+    dplyr::select(origin, age, value)
+
+  out <- out |> mutate(value = ifelse(value == Inf, NA_real_, value))
+
+  structure(out, class = c("ata", class(out)))
+
+}
+
+#' @importFrom tibble tibble
+dev_tri <- function(origin, age, value) {
+  tib <- tibble::tibble(origin = origin, age = age, value = value)
+  structure(tib, class = c("dev_tri", class(tib)))
+}
+
+#' @importFrom tidyr pivot_wider
+spread_tri <- function(tri) {
+  tri |>
+    tidyr::pivot_wider(names_from = age, values_from = value)
+}
+
+#' @importFrom dplyr group_by summarise
+ldf_avg <- function(tri) {
+  ata <- ata_tri(tri)
+  out <- ata %>% dplyr::group_by(age) %>% dplyr::summarise(ldfs = mean(value,
+                                                                       na.rm = TRUE))
+  ldfs <- out$ldfs
+  out <- idf(ldfs[-length(ldfs)], first_age = min(tri$age))
+  attr(out, "dev_tri") <- tri
+  out
+}
+
+#' @importFrom dplyr mutate
+idf2cdf <- function(idf_) {
+  stopifnot(inherits(idf_, "idf_"))
+  cdf_new <- idf_
+  cdf_new$cdfs <- cdf_new$idfs %>% rev() %>% cumprod() %>%
+    rev()
+  cdf_new <- cdf_new %>% dplyr::mutate(cdfs = cdfs * earned_ratio)
+  out <- cdf(cdfs = cdf_new$cdfs, first_age = cdf_new$age[1])
+  attr(out, "tail_first_age") <- attr(idf_, "tail_first_age")
+  attr(out, "dev_tri") <- attr(idf_, "dev_tri")
+  out
 }
