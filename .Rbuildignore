@@ -15,3 +15,6 @@ $run_dev.*
 ^Dockerfile$
 ^\.covrignore$
 ^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

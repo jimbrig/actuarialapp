@@ -5,7 +5,8 @@ Authors@R:
     person("Jimmy", "Briggs", , "jimmy.briggs@jimbrig.com", role = c("cre", "aut"))
 Description: Shiny app for actuarial science.
 License: MIT + file LICENSE
-URL: https://github.com/jimbrig/actuarialapp
+URL: https://github.com/jimbrig/actuarialapp,
+    https://jimbrig.github.io/actuarialapp/
 BugReports: https://github.com/jimbrig/actuarialapp/issues
 Depends: 
     R (>= 2.10)
