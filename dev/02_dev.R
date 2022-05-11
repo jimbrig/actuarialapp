@@ -11,6 +11,10 @@
 #### CURRENT FILE: DEV SCRIPT #####
 ###################################
 
+remotes::install_github("thinkr-open/chameleon")
+fs::dir_create("inst/docs")
+chameleon::open_pkgdown_function()
+
 # Engineering
 
 ## Dependencies ----
@@ -53,10 +57,16 @@ devtools::build_vignettes()
 
 ## Code Coverage----
 ## Set the code coverage service ("codecov" or "coveralls")
-usethis::use_coverage()
-
+usethis::use_coverage("codecov", "jimbrig/actuarialapp")
+covr::codecov(path = "tests", token = "8415f9ad-4a42-41d1-abee-678a13cd2762")
+c
 # Create a summary readme for the testthat subdirectory
-covrpage::covrpage()
+covrpage::covrpage(".", vignette = TRUE)
+
+testdown::test_down(
+  "Actuarial App",
+  "Jimmy Briggs"
+)
 
 ## CI ----
 ## Use this part of the script if you need to set up a CI
@@ -75,11 +85,13 @@ usethis::use_github_action_check_full()
 # Add action for PR
 usethis::use_github_action_pr_commands()
 
+usethis::use_pkgdown_github_pages()
+
 # Travis CI
 usethis::use_travis()
 usethis::use_travis_badge()
 
-# AppVeyor
+  # AppVeyor
 usethis::use_appveyor()
 usethis::use_appveyor_badge()
 
@@ -96,3 +108,5 @@ usethis::use_gitlab_ci()
 # You're now set! ----
 # go to dev/03_deploy.R
 rstudioapi::navigateToFile("dev/03_deploy.R")
+
+codemeta::write_codemeta()
