@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Update README
 - Add GHA badge to readme
 - Generate function man pages
+- Update codemeta
 
 ### Features
 
@@ -53,6 +54,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-05-11T18:42:26Z
 - Autopublish 2022-05-11T18:50:44Z
 - Autopublish 2022-05-11T18:58:31Z
+- Autopublish 2022-05-11T19:01:53Z
 
 ### Testing
 
