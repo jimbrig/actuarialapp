@@ -27,3 +27,12 @@ This is a basic example which shows you how to solve a common problem:
 # library(actuarialapp)
 ## basic example code
 ```
+
+## Docker
+
+- See [the app's latest docker image](https://github.com/jimbrig/actuarialapp/pkgs/container/actuarialapp)
+
+```bash
+docker run --name actuarialapp -d -p 8080:80 ghcr.io/jimbrig/actuarialapp:latest
+start http://127.0.0.1:8080
+```
