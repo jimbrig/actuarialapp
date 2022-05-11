@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Generate
+CHANGELOG.md](https://github.com/jimbrig/actuarialapp/actions/workflows/git-cliff.yml/badge.svg)](https://github.com/jimbrig/actuarialapp/actions/workflows/git-cliff.yml)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Codecov test
