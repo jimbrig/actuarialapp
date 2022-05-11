@@ -30,12 +30,18 @@ All notable changes to this project will be documented in this file.
 - Add dataprep script for data_validation
 - Create initial yml validation for loss_data
 - Create codecov.yml GHA
+- Add testdown report (issue #19)
+- Add deployment files (docker, app, build)
+- Update spelling wordlist
+- Add codemetar metadata JSON
+- Update DESCRIPTION
 
 ### Miscellaneous Tasks
 
 - Autopublish 2022-05-11T14:47:31Z
 - Autopublish 2022-05-11T14:53:32Z
 - Autopublish 2022-05-11T16:02:36Z
+- Autopublish 2022-05-11T16:54:28Z
 
 ### Testing
 
