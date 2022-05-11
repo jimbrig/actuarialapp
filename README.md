@@ -4,14 +4,9 @@
 # actuarialapp
 
 <!-- badges: start -->
-
-[![Generate
-CHANGELOG.md](https://github.com/jimbrig/actuarialapp/actions/workflows/git-cliff.yml/badge.svg)](https://github.com/jimbrig/actuarialapp/actions/workflows/git-cliff.yml)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![test-coverage](https://github.com/jimbrig/actuarialapp/actions/workflows/codecov.yml/badge.svg)](https://github.com/jimbrig/actuarialapp/actions/workflows/codecov.yml)
-[![Codecov test
-coverage](https://codecov.io/gh/jimbrig/actuarialapp/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jimbrig/actuarialapp?branch=main)
+[![Lifecycle: Experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Test Coverage](https://codecov.io/gh/jimbrig/actuarialapp/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jimbrig/actuarialapp?branch=main)
+[![Generate CHANGELOG.md](https://github.com/jimbrig/actuarialapp/actions/workflows/git-cliff.yml/badge.svg)](https://github.com/jimbrig/actuarialapp/actions/workflows/git-cliff.yml)
 <!-- badges: end -->
 
 The goal of actuarialapp is to …
@@ -21,7 +16,7 @@ The goal of actuarialapp is to …
 You can install the development version of actuarialapp like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+pak::pak("jimbrig/actuarialapp")
 ```
 
 ## Example
