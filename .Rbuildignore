@@ -10,3 +10,6 @@ $run_dev.*
 ^cliff\.toml$
 ^CHANGELOG\.md$
 ^codecov\.yml$
+^app\.R$
+^rsconnect$
+^Dockerfile$
