@@ -1,0 +1,29 @@
+rules:
+- expr: is.Date(eval_date)
+  name: V1
+  label: Field `eval_date` is parseable to type `Date`.
+  description: ''
+  created: 2022-05-11 11:21:15
+  origin: command-line
+  meta:
+    language: validate 1.1.1
+    severity: error
+- expr: '!any(is.na(eval_date))'
+  name: V2
+  label: Field `eval_date` has no missing values.
+  description: ''
+  created: 2022-05-11 11:21:15
+  origin: command-line
+  meta:
+    language: validate 1.1.1
+    severity: error
+- expr: eval_date == end_of_month(eval_date)
+  name: V3
+  label: Field `eval_date` only contains 'end of month' dates.
+  description: ''
+  created: 2022-05-11 11:21:15
+  origin: command-line
+  meta:
+    language: validate 1.1.1
+    severity: error
+

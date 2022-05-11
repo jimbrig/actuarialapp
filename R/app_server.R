@@ -6,5 +6,5 @@
 #' @noRd
 app_server <- function(input, output, session) {
   # Your application server logic
-  mod_upload_modal_server("upload_modal_1", ruleset = )
+  mod_upload_modal_server("upload_modal_1", rules_config = "loss_data")
 }
