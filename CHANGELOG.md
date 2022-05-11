@@ -29,11 +29,13 @@ All notable changes to this project will be documented in this file.
 - Remove devtri function imports (issue #10)
 - Add dataprep script for data_validation
 - Create initial yml validation for loss_data
+- Create codecov.yml GHA
 
 ### Miscellaneous Tasks
 
 - Autopublish 2022-05-11T14:47:31Z
 - Autopublish 2022-05-11T14:53:32Z
+- Autopublish 2022-05-11T16:02:36Z
 
 ### Testing
 
