@@ -20,6 +20,7 @@ chameleon::open_pkgdown_function()
 ## Dependencies ----
 ## Amend DESCRIPTION with dependencies read from package code parsing
 attachment::att_amend_desc()
+attachment::create_dependencies_file()
 
 ## Add modules ----
 ## Create a module infrastructure in R/
