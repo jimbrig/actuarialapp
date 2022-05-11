@@ -36,6 +36,7 @@ All notable changes to this project will be documented in this file.
 - Add codemetar metadata JSON
 - Update DESCRIPTION
 - Add new GHA's and pkgdown site
+- Enhance and update deployment files
 
 ### Miscellaneous Tasks
 
@@ -51,6 +52,7 @@ All notable changes to this project will be documented in this file.
 - Autopublish 2022-05-11T18:35:50Z
 - Autopublish 2022-05-11T18:42:26Z
 - Autopublish 2022-05-11T18:50:44Z
+- Autopublish 2022-05-11T18:58:31Z
 
 ### Testing
 
