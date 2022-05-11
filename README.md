@@ -9,6 +9,7 @@
 CHANGELOG.md](https://github.com/jimbrig/actuarialapp/actions/workflows/git-cliff.yml/badge.svg)](https://github.com/jimbrig/actuarialapp/actions/workflows/git-cliff.yml)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![test-coverage](https://github.com/jimbrig/actuarialapp/actions/workflows/codecov.yml/badge.svg)](https://github.com/jimbrig/actuarialapp/actions/workflows/codecov.yml)
 [![Codecov test
 coverage](https://codecov.io/gh/jimbrig/actuarialapp/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jimbrig/actuarialapp?branch=main)
 <!-- badges: end -->
