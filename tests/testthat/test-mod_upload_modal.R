@@ -1,7 +1,9 @@
 testServer(
   mod_upload_modal_server,
   # Add here your module params
-  args = list()
+  args = list(
+    rules_config = "loss_data"
+  )
   , {
     ns <- session$ns
     expect_true(
@@ -13,6 +15,12 @@ testServer(
     expect_true(
       grepl("test", ns("test"))
     )
+
+    session$setInputs(
+      from = "file"
+    )
+    expect_true(input$from == "file")
+
     # Here are some examples of tests you can
     # run on your module
     # - Testing the setting of inputs
@@ -25,7 +33,7 @@ testServer(
     # - Testing output
     # expect_true(inherits(output$tbl$html, "html"))
 })
- 
+
 test_that("module ui works", {
   ui <- mod_upload_modal_ui(id = "test")
   golem::expect_shinytaglist(ui)
@@ -35,4 +43,4 @@ test_that("module ui works", {
     expect_true(i %in% names(fmls))
   }
 })
- 
+
