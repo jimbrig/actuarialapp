@@ -39,8 +39,19 @@ mod_upload_modal_ui <- function(id){
 #' @importFrom validate validator
 #' @importFrom datamods import_modal import_server
 #' @importFrom shiny moduleServer observeEvent req renderPrint
-mod_upload_modal_server <- function(id, ruleset = validate::validator(.file = system.file("validation/rules.yaml", package = "datamods"))) {
-  shiny::moduleServer(id, function(input, output, session){
+mod_upload_modal_server <- function(id, rules_config) {
+
+  pkg_rules <- fs::path_ext_remove(basename(fs::dir_ls(fs::path_package("actuarialapp", "validation"))))
+
+  if (rules_config %in% pkg_rules) {
+    rules_config_file <- system.file(paste0("validation/", rules_config, ".yml"), package = "actuarialapp")
+    stopifnot(file.exists(rules_config_file))
+    rules <- validate::validator(.file = rules_config_file)
+  } else {
+    rules <- validate::validator(rules_config)
+  }
+
+  shiny::moduleServer(id, function(input, output, session, ruleset = rules){
     ns <- session$ns
 
     shiny::observeEvent(input$launch_modal, {
