@@ -17,7 +17,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: r-lib/actions/setup-r@v1
         with:
@@ -31,8 +31,8 @@ jobs:
         run: |
           R CMD INSTALL --install-tests .
       - name: Test coverage
-        # run: covr::codecov()
-        run: |
-          Sys.setenv("CODECOV_TOKEN" = "${{ secrets.CODECOV_TOKEN }}")
-          covr::codecov(coverage = covr::package_coverage(here::here(), type = "tests", quiet = FALSE, line_exclusions = list("tests/spelling.R"))) #line_exclusions = list("R/utils-msg_helpers.R")))
+        run: covr::codecov()
+        # run: |
+        #  Sys.setenv("CODECOV_TOKEN" = "${{ secrets.CODECOV_TOKEN }}")
+        #  covr::codecov(coverage = covr::package_coverage(here::here(), type = "tests", quiet = FALSE, line_exclusions = list("tests/spelling.R"))) #line_exclusions = list("R/utils-msg_helpers.R")))
         shell: Rscript {0}
